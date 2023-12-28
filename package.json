@@ -3,11 +3,11 @@
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "bunx husky install",
     "lint": "bunx @biomejs/biome check --apply ./src",
     "lint:staged": "bunx @biomejs/biome check --apply",
-    "test": "vitest run",
-    "test:staged": "vitest related --run --passWithNoTests",
+    "test": "bun test",
+    "test:staged": "bun test --findRelatedTests --passWithNoTests",
     "build": "rimraf dist && tsup src/server.ts -d ./dist",
     "start": "bun dist/server.cjs"
   },
