@@ -1,0 +1,29 @@
+name: CI
+on: [push]
+
+env:
+  TEST_TAG: app:prerelease
+jobs:
+  build:
+    name: build-app
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install bun
+        uses: oven-sh/setup-bun@v1
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: false
+          load: true
+          target: prerelease
+          tags: ${{ env.TEST_TAG }}
+      - name: Build
+        run: |
+          docker run --rm $TEST_TAG bun run build
+      - name: Test
+        run: |
+          docker run --rm $TEST_TAG bun run test
