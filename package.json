@@ -7,6 +7,7 @@
     "lint": "bunx @biomejs/biome check --apply ./src",
     "lint:staged": "bunx @biomejs/biome check --apply",
     "test": "vitest run",
+    "test:staged": "vitest related --run --passWithNoTests",
     "build": "bun src/server.ts --outdir ./dist",
     "start": "bun dist/server.cjs"
   },
