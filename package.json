@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "prepare": "husky install",
+    "lint": "bunx @biomejs/biome check --apply ./src",
     "build": "bun src/server.ts --outdir ./dist",
     "start": "bun dist/server.cjs"
   },
