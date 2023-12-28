@@ -1,3 +1,3 @@
 export function log() {
-	console.log("Hello via Bun!");
+	console.log("Hello via Bun!!!");
 }

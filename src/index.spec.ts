@@ -9,5 +9,5 @@ it("should call console.log correctly", () => {
 	const logSpy = vi.spyOn(console, "log");
 	log();
 
-	expect(logSpy).toHaveBeenCalledWith("Hello via Bun!");
+	expect(logSpy).toHaveBeenCalledWith("Hello via Bun!!!");
 });
